@@ -1,0 +1,120 @@
+/* ========== 1. THEME (colors yahan se badlo) ========== */
+:root{
+  --bg:#070b1a; --bg2:#0b1024; --card:#0d1330; --border:#1e2547;
+  --text:#f1f3fb; --muted:#9aa3c0; --accent:#7c5cff; --accent2:#5b7cff;
+  --grad:linear-gradient(90deg,#7c5cff,#5b7cff);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+section{padding:80px 0}
+.alt{background:var(--bg2)}
+.tag{display:inline-block;font-size:15px;color:var(--accent);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px}
+h2{font-size:clamp(26px,4vw,34px);line-height:1.25;margin-bottom:14px}
+p.lead{color:var(--muted);max-width:480px}
+.center{text-align:center}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:8px;font-weight:500;font-size:14px;cursor:pointer;border:1px solid var(--border);color:var(--text);background:transparent;transition:.2s}
+.btn.primary{background:var(--grad);border:0}
+.btn:hover{transform:translateY(-2px);border-color:var(--accent)}
+.btn:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* ========== 2. NAVBAR ========== */
+header{position:sticky;top:0;z-index:50;background:rgba(7,11,26,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-weight:600;font-size:20px}.logo b{color:var(--accent)}
+.links{display:flex;gap:30px;font-size:14px;color:var(--muted)}
+.links a:hover,.links a.active{color:var(--text)}
+.menu{display:none;background:none;border:0;color:var(--text);font-size:26px;cursor:pointer}
+
+/* ========== 3. HERO ========== */
+.hero{padding:70px 0 0;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:end}
+.badge{display:inline-block;font-size:18px;color:var(--muted);border:1px solid var(--border);background:var(--card);padding:5px 12px;border-radius:6px;margin-bottom:22px}
+.hero h1{font-size:clamp(36px,6vw,52px);line-height:1.15;font-weight:700}
+.hero h1 span{color:var(--accent)}
+.hero h1 small{display:block;font-size:.8em}
+.hero p{color:var(--muted);margin:20px 0 28px;max-width:440px}
+.btns{display:flex;gap:14px;flex-wrap:wrap}
+.tech{margin:34px 0 60px}.tech p{font-size:12px;margin:0 0 12px;color:var(--muted)}
+.tech div{display:flex;gap:14px;flex-wrap:wrap}
+.chip{width:38px;height:38px;border-radius:8px;display:grid;place-items:center;font-weight:700;font-size:13px;color:#fff}
+.photo{position:relative;display:flex;justify-content:center;align-items:center;padding-bottom:40px}
+/* Circle: photo isi ke andar clip hoti hai */
+.circle{position:relative;width:min(360px,80vw);aspect-ratio:1/1;border-radius:50%;overflow:hidden;background:linear-gradient(160deg,#8b5cf6,#4f46e5)}
+/* Jacket ke rang ka band: shoulders aur circle ke beech ki khali jagah bharta hai */
+.circle::after{content:"";position:absolute;left:0;right:0;bottom:0;height:24%;background:#0f1730}
+/* Photo circle ke bottom se chipki rahegi. Bada/chhota karna ho to height % badlo */
+.circle img{position:absolute;z-index:1;bottom:0;left:50%;transform:translateX(-50%);height:105%;width:auto;display:block}
+
+/* ========== 4. ABOUT ========== */
+.about .wrap{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.about .btn{margin-top:22px}
+.stats{display:grid;grid-template-columns:1fr 1fr;border-left:1px solid var(--border)}
+.stat{display:flex;gap:14px;align-items:center;padding:28px 24px;border-bottom:1px solid var(--border)}
+.stat:nth-child(n+3){border-bottom:0}
+.stat:nth-child(odd){border-right:1px solid var(--border)}
+.ico{width:42px;height:42px;border-radius:10px;background:var(--accent);display:grid;place-items:center;font-size:18px}
+.stat b{font-size:24px;display:block;line-height:1.2}.stat span{font-size:13px;color:var(--muted)}
+
+/* ========== 5. SKILLS ========== */
+.groups{display:grid;grid-template-columns:repeat(5,1fr);margin-top:44px;align-items:start}
+/* Har group ek column hai, beech mein vertical line se alag */
+.group{padding:0 16px}
+.group:first-child{padding-left:0}
+.group:last-child{padding-right:0}
+.group + .group{border-left:1px solid var(--border)}
+.group h3{font-size:15px;font-weight:600;color:var(--text);letter-spacing:.06em;text-transform:uppercase;margin-bottom:20px;text-align:center}
+@media(max-width:1120px){
+  .groups{grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:32px 20px}
+  .group,.group:first-child,.group:last-child{padding:0}
+  .group + .group{border-left:0}
+}
+.skills{display:grid;grid-template-columns:1fr;gap:14px}
+.skill{display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--card);border:1px solid var(--border);border-radius:12px;font-weight:500;transition:.25s}
+.skill:hover{transform:translateY(-4px);border-color:var(--accent)}
+.skill img{width:36px;height:36px;flex:none}
+.skill img.invert{filter:invert(1)}  /* Next.js ka logo black hai, dark theme ke liye white */
+
+/* ========== 6. PROJECTS ========== */
+.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px;text-align:left}
+.proj{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:.25s}
+.proj:hover{transform:translateY(-6px);border-color:var(--accent)}
+/* STEP: har project ka screenshot dalne ke liye .thumb ko <img> se replace karo */
+.thumb{height:150px;display:grid;place-items:center;font-size:34px;font-weight:700}
+.proj .body{padding:20px}
+.proj h3{font-size:16px;margin-bottom:6px}.proj p{font-size:13px;color:var(--muted);margin-bottom:16px}
+.proj a{font-size:12px;color:var(--accent)}
+
+/* ========== 7. CONTACT + TESTIMONIAL ========== */
+.contact .wrap{display:grid;grid-template-columns:1fr 1.1fr 1fr;gap:34px;align-items:center}
+.quote{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px}
+.quote q{display:block;font-size:14px;color:var(--muted);margin-bottom:18px}
+.who{display:flex;gap:12px;align-items:center;font-size:13px}.who span{display:block;color:var(--muted);font-size:12px}
+.pic{width:40px;height:40px;border-radius:50%;background:var(--accent);display:grid;place-items:center;font-weight:600}
+.social{display:flex;gap:14px;margin:14px 0 20px}
+.social a{width:36px;height:36px;border:1px solid var(--border);border-radius:8px;display:grid;place-items:center;font-size:13px;color:var(--muted)}
+.social a:hover{color:var(--text);border-color:var(--accent)}
+.info{font-size:14px;color:var(--muted);line-height:2}
+
+/* ========== 8. FOOTER ========== */
+footer{border-top:1px solid var(--border);padding:22px 0;font-size:12px;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+/* ========== 9. RESPONSIVE ========== */
+@media(max-width:900px){
+  .hero .wrap,.about .wrap,.contact .wrap{grid-template-columns:1fr}
+  .projects{grid-template-columns:1fr 1fr}
+  .photo{padding-bottom:0}
+}
+@media(max-width:640px){
+  section{padding:56px 0}
+  .links{display:none;position:absolute;top:68px;left:0;right:0;flex-direction:column;background:var(--bg);padding:20px 24px;border-bottom:1px solid var(--border)}
+  .links.open{display:flex}.menu{display:block}
+  nav .btn{display:none}
+  .projects{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
